@@ -1,47 +1,66 @@
 # Radix Diseños - WordPress Theme
 
-A premium WordPress theme designed for architecture and interior design firms, featuring a stunning dark mode design, modern aesthetics, and smooth animations.
+Tema WordPress premium para empresa de construcción y muebles a medida en el sur de Chile.
 
-## Features
+## 🏗️ Características
 
-- **Modern Dark Theme**: Sleek dark design with custom color palette
-- **Tailwind CSS**: Utility-first CSS framework via CDN for rapid styling
-- **Google Fonts**: Professional Inter font family
-- **Material Icons**: Google Material Symbols for crisp iconography
-- **Responsive Design**: Fully responsive across all devices
-- **WordPress Customizer Integration**: Easy customization of hero section and company info
-- **Custom Navigation**: WordPress menu system with mobile support
-- **Custom Logo Support**: Upload your own logo
-- **SEO Optimized**: Clean, semantic HTML5 markup
+- **Diseño Oscuro Premium**: Estética moderna con fondo negro y color primario ámbar
+- **Tailwind CSS**: Framework CSS utility-first para estilos rápidos y consistentes
+- **100% en Español**: Contenido completamente localizado para el mercado chileno
+- **Responsive**: Diseño adaptativo para móvil, tablet y desktop
+- **WhatsApp Integration**: Botones de contacto directo integrados
+- **WordPress Customizer**: Personalización fácil sin tocar código
 
-## Installation
+## 📍 Cobertura
 
-1. Download the theme ZIP file
-2. In WordPress admin, navigate to **Appearance > Themes > Add New**
-3. Click **Upload Theme** and select the ZIP file
-4. Click **Install Now** and then **Activate**
+- **Regiones**: Bío Bío, Araucanía, Los Ríos, Los Lagos
+- **Desde**: Chillán
+- **Hasta**: Puerto Varas
 
-## Configuration
+## 🛠️ Servicios
 
-### 1. Set Homepage
+1. **Área de Salud**: Mesón de atención, box, salas de espera
+2. **Construcción General**: Locales comerciales, remodelación, terminaciones
+3. **Muebles a Medida**: Cocinas, clósets, walking closet, vanitorios, escritorios
 
-1. Go to **Settings > Reading**
-2. Under "Your homepage displays", select "A static page"
-3. Set "Homepage" to the page you want as front page (or create a new page)
+## 📦 Instalación
 
-### 2. Create Navigation Menu
+### Método 1: Subir ZIP (Recomendado)
 
-1. Go to **Appearance > Menus**
-2. Create a new menu
-3. Add your pages/links to the menu
-4. Under "Menu Settings", check **Primary Menu**
-5. Click **Save Menu**
+1. Descarga el tema como ZIP desde GitHub
+2. En WordPress admin: **Apariencia → Temas → Añadir Nuevo**
+3. Click en **Subir Tema**
+4. Selecciona el archivo ZIP
+5. Click en **Instalar Ahora** → **Activar**
 
-### 3. Customize Content
+### Método 2: FTP/DirectAdmin
 
-1. Go to **Appearance > Customize**
-2. Navigate to **Radix Theme Settings**
-3. Edit:
+1. Clona o descarga este repositorio
+2. Sube la carpeta `radix-theme` a `/public_html/wp-content/themes/`
+3. En WordPress admin: **Apariencia → Temas**
+4. Activa **Radix Diseños**
+
+## ⚙️ Configuración Inicial
+
+### 1. Configurar Homepage
+
+1. **Ajustes → Lectura**
+2. Seleccionar "Una página estática"
+3. Crear/seleccionar página para "Página de inicio"
+4. Guardar cambios
+
+### 2. Crear Menú de Navegación
+
+1. **Apariencia → Menús**
+2. Crear nuevo menú "Menú Principal"
+3. Agregar páginas: Proyectos, Servicios, Sobre Nosotros, Contacto
+4. En "Ajustes del menú", marcar **Primary Menu**
+5. Guardar menú
+
+### 3. Personalizar Contenido
+
+1. **Apariencia → Personalizar → Radix Theme Settings**
+2. Editar:
    - Hero Headline
    - Hero Sub-Headline
    - Hero Description
@@ -49,79 +68,66 @@ A premium WordPress theme designed for architecture and interior design firms, f
    - Company Email
    - Company Phone
    - Company Address
+3. Click **Publicar**
 
-### 4. Upload Logo (Optional)
+### 4. Subir Logo (Opcional)
 
-1. Go to **Appearance > Customize > Site Identity**
-2. Click **Select Logo** and upload your logo image
-3. Recommended size: 300px wide × 100px tall
+1. **Apariencia → Personalizar → Identidad del Sitio**
+2. Click **Seleccionar Logo**
+3. Subir imagen (recomendado: 300×100px)
+4. Click **Publicar**
 
-## Theme Structure
+## 📱 Contacto
+
+- **WhatsApp**: +56 9 6825 2440
+- **Email**: <contacto@radixdisenos.com>
+- **Ubicación**: Panamericana Sur Km 687
+
+## 🎨 Colores del Tema
+
+- **Primario**: #f59e0b (Ámbar)
+- **Fondo**: #000000 (Negro)
+- **Superficie**: #0a0a0a (Negro profundo)
+
+## 📄 Estructura de Archivos
 
 ```
 radix-theme/
-├── style.css              # Main stylesheet with theme metadata
-├── functions.php          # Theme setup and functionality
-├── screenshot.png         # Theme preview image
-├── README.md              # Documentation (this file)
-├── header.php             # Header template
-├── footer.php             # Footer template
-├── front-page.php         # Homepage template
-├── index.php              # Blog/archive template
-├── page.php               # Single page template
-├── single.php             # Single post template
+├── style.css           # Estilos principales + metadata del tema
+├── functions.php       # Funciones y configuración
+├── header.php          # Cabecera y navegación
+├── footer.php          # Pie de página
+├── front-page.php      # Plantilla de página de inicio
+├── index.php           # Plantilla de blog/archivo
+├── page.php            # Plantilla de página estándar
+├── single.php          # Plantilla de entrada individual
+├── screenshot.png      # Captura del tema
+├── README.md           # Este archivo
 └── assets/
     ├── css/
-    │   └── custom.css     # Additional custom styles
+    │   └── custom.css  # Estilos adicionales
     └── js/
-        └── main.js        # Custom JavaScript
+        └── main.js     # JavaScript personalizado
 ```
 
-## Customization
+## 🚀 Tecnologías
 
-### Colors
+- **WordPress**: 5.0+
+- **PHP**: 7.4+
+- **Tailwind CSS**: vía CDN
+- **Google Fonts**: Inter
+- **Material Symbols**: Google Icons
 
-The theme uses these primary colors (defined in Tailwind config):
+## 📝 Licencia
 
-- **Primary**: `#135bec` (Blue)
-- **Background Dark**: `#101622`
-- **Surface Dark**: `#161b26`
-- **Background Light**: `#f6f6f8`
+GNU General Public License v2 or later
 
-### Fonts
+## 🤝 Soporte
 
-- **Display Font**: Inter (300, 400, 500, 700, 900)
-- **Body Font**: Inter
+Para soporte o consultas, contactar a través de WhatsApp o email.
 
-### Modifying Service Cards
+---
 
-Service cards on the homepage are currently static. To edit them:
-
-1. Edit `front-page.php` in a child theme or theme editor
-2. Locate the "Services Grid" section
-3. Modify card titles, descriptions, and background images
-
-## Support
-
-For support, contact: <hello@radixdisenos.com>
-
-## Credits
-
-- **Tailwind CSS**: <https://tailwindcss.com>
-- **Google Fonts (Inter)**: <https://fonts.google.com>
-- **Material Symbols**: <https://fonts.google.com/icons>
-
-## License
-
-This theme is licensed under the GNU General Public License v2 or later.
-
-## Changelog
-
-### Version 1.0.0
-
-- Initial release
-- Dark mode design
-- Tailwind CSS integration
-- WordPress Customizer settings
-- Responsive navigation
-- Custom logo support
+**Versión**: 1.0.0  
+**Autor**: Radix Diseños  
+**Última actualización**: Febrero 2026
