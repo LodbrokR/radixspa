@@ -19,37 +19,49 @@
                     </p>
                 </div>
                 
-                <div>
-                    <h4 class="text-white font-bold mb-4">Quick Links</h4>
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'primary',
-                        'container'      => false,
-                        'menu_class'     => 'flex flex-col gap-3 text-sm text-gray-400',
-                        'fallback_cb'    => false,
-                        'link_before'    => '<span class="hover:text-primary transition-colors">',
-                        'link_after'     => '</span>',
-                    ));
-                    ?>
+                <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold text-white">Navegación</h3>
+                <div class="flex flex-col gap-2">
+                    <a class="text-gray-400 hover:text-white transition-colors" href="<?php echo home_url('/'); ?>">Inicio</a>
+                    <a class="text-gray-400 hover:text-white transition-colors" href="<?php echo home_url('/servicios'); ?>">Servicios</a>
+                    <a class="text-gray-400 hover:text-white transition-colors" href="<?php echo home_url('/proyectos'); ?>">Proyectos</a>
+                    <a class="text-gray-400 hover:text-white transition-colors" href="<?php echo home_url('/nosotros'); ?>">Nosotros</a>
                 </div>
-                
-                <div>
-                    <h4 class="text-white font-bold mb-4">Contact</h4>
-                    <ul class="flex flex-col gap-3 text-sm text-gray-400">
-                        <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-sm">mail</span> 
-                            <?php echo esc_html(get_theme_mod('radix_company_email', 'hello@radixdisenos.com')); ?>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-sm">call</span> 
-                            <?php echo esc_html(get_theme_mod('radix_company_phone', '+1 (555) 123-4567')); ?>
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-sm">location_on</span> 
-                            <?php echo esc_html(get_theme_mod('radix_company_address', '123 Design District, NY')); ?>
-                        </li>
-                    </ul>
+            </div>
+            
+            <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold text-white">Contacto</h3>
+                <div class="flex flex-col gap-2">
+                    <a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="mailto:<?php echo esc_attr(get_theme_mod('radix_company_email', 'contacto@radixdisenos.com')); ?>">
+                        <span class="material-symbols-outlined text-sm">mail</span>
+                        <?php echo esc_html(get_theme_mod('radix_company_email', 'contacto@radixdisenos.com')); ?>
+                    </a>
+                    <a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="tel:<?php echo esc_attr(str_replace(' ', '', get_theme_mod('radix_company_phone', '+56 9 6825 2440'))); ?>">
+                        <span class="material-symbols-outlined text-sm">phone</span>
+                        <?php echo esc_html(get_theme_mod('radix_company_phone', '+56 9 6825 2440')); ?>
+                    </a>
+                    <a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="https://wa.me/56968252440" target="_blank">
+                        <span class="material-symbols-outlined text-sm">chat</span>
+                        WhatsApp
+                    </a>
+                    <p class="text-gray-400 flex items-start gap-2">
+                        <span class="material-symbols-outlined text-sm mt-1">location_on</span>
+                        <span><?php echo esc_html(get_theme_mod('radix_company_address', 'Panamericana Sur Km 687')); ?></span>
+                    </p>
                 </div>
+            </div>
+            
+            <div class="flex flex-col gap-4">
+                <h3 class="text-lg font-bold text-white">Síguenos</h3>
+                <div class="flex gap-4">
+                    <a class="text-gray-400 hover:text-white transition-colors" href="#" aria-label="Facebook">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a class="text-gray-400 hover:text-white transition-colors" href="#" aria-label="Instagram">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.440 1.440 0 100 2.881 1.440 1.440 0 000-2.881z"/></svg>
+                    </a>
+                </div>
+            </div>
             </div>
             
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -58,8 +70,8 @@
             </p>
             <!-- Deploy automático funcionando ✅ - Última actualización: <?php echo date('Y-m-d H:i:s'); ?> -->
                 <div class="flex gap-6">
-                    <a class="text-gray-500 hover:text-white transition-colors text-xs" href="#">Privacy Policy</a>
-                    <a class="text-gray-500 hover:text-white transition-colors text-xs" href="#">Terms of Service</a>
+                    <a class="text-gray-400 hover:text-white transition-colors text-sm" href="<?php echo home_url('/politica-privacidad'); ?>">Política de Privacidad</a>
+                    <a class="text-gray-400 hover:text-white transition-colors text-sm" href="<?php echo home_url('/terminos-servicio'); ?>">Términos de Servicio</a>
                 </div>
             </div>
         </div>

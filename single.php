@@ -27,7 +27,8 @@ get_header();
                         <div class="flex items-center gap-4 text-gray-400 text-sm">
                             <span><?php echo get_the_date(); ?></span>
                             <span>•</span>
-                            <span>By <?php the_author(); ?></span>
+                            <span class="text-sm text-gray-400">Por</span>
+                            <span class="text-sm text-gray-300"><?php the_author(); ?></span>
                             <?php if (has_category()) : ?>
                                 <span>•</span>
                                 <span><?php the_category(', '); ?></span>
@@ -41,6 +42,7 @@ get_header();
                     
                     <?php if (has_tag()) : ?>
                         <div class="mt-8 pt-8 border-t border-white/10">
+                            <h3 class="text-xl font-bold text-white mb-4">Etiquetas</h3>
                             <div class="flex flex-wrap gap-2">
                                 <?php
                                 $tags = get_the_tags();
@@ -66,7 +68,7 @@ get_header();
                     ?>
                         <a href="<?php echo get_permalink($prev_post->ID); ?>" class="flex items-center gap-2 text-gray-400 hover:text-white transition-colors">
                             <span class="material-symbols-outlined">arrow_back</span>
-                            <span class="text-sm"><?php echo esc_html($prev_post->post_title); ?></span>
+                            <span class="text-sm text-gray-400">← Anterior</span><br><span class="text-lg font-bold"><?php echo esc_html($prev_post->post_title); ?></span>
                         </a>
                     <?php endif; ?>
                 </div>
@@ -76,7 +78,7 @@ get_header();
                     if (!empty($next_post)) :
                     ?>
                         <a href="<?php echo get_permalink($next_post->ID); ?>" class="flex items-center justify-end gap-2 text-gray-400 hover:text-white transition-colors">
-                            <span class="text-sm"><?php echo esc_html($next_post->post_title); ?></span>
+                            <span class="text-sm text-gray-400">Siguiente →</span><br><span class="text-lg font-bold"><?php echo esc_html($next_post->post_title); ?></span>
                             <span class="material-symbols-outlined">arrow_forward</span>
                         </a>
                     <?php endif; ?>
