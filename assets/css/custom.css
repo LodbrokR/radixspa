@@ -1,0 +1,177 @@
+/* Additional Custom Styles for Radix Diseños Theme */
+
+/* Custom Logo Styles */
+.custom-logo {
+    max-height: 50px;
+    width: auto;
+}
+
+.custom-logo-container {
+    display: flex;
+    align-items: center;
+}
+
+/* Navigation Menu Styles */
+nav .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav .menu li {
+    display: inline-block;
+}
+
+nav .menu a {
+    text-decoration: none;
+}
+
+/* WordPress Menu Integration */
+.menu-item {
+    position: relative;
+}
+
+.menu-item a {
+    display: block;
+}
+
+/* Submenu styles (if needed later) */
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(22, 27, 38, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0;
+    min-width: 200px;
+}
+
+.menu-item:hover .sub-menu {
+    display: block;
+}
+
+/* Prose styles for content areas */
+.prose {
+    max-width: 65ch;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+    color: #fff;
+    font-weight: 700;
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.prose p {
+    margin-bottom: 1.25em;
+    line-height: 1.75;
+}
+
+.prose a {
+    color: #135bec;
+    text-decoration: none;
+}
+
+.prose a:hover {
+    color: #3d7bf5;
+}
+
+.prose ul,
+.prose ol {
+    margin-bottom: 1.25em;
+    padding-left: 1.625em;
+}
+
+.prose li {
+    margin-bottom: 0.5em;
+}
+
+.prose img {
+    border-radius: 0.75rem;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.prose blockquote {
+    border-left: 4px solid #135bec;
+    padding-left: 1em;
+    font-style: italic;
+    color: #9ca3af;
+    margin: 2em 0;
+}
+
+/* Pagination Styles */
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.pagination .page-numbers {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.pagination .page-numbers:hover,
+.pagination .page-numbers.current {
+    background: #135bec;
+    color: #fff;
+}
+
+/* Line clamp utility for text truncation */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Responsive video embeds */
+.wp-block-embed {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+}
+
+.wp-block-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Loading animation for images */
+img {
+    transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"] {
+    opacity: 0;
+}
+
+img.loaded,
+img:not([loading="lazy"]) {
+    opacity: 1;
+}

@@ -1,0 +1,83 @@
+/*
+Theme Name: Radix Diseños
+Theme URI: https://radixdisenos.com
+Description: Tema WordPress premium para construcción y muebles a medida, con diseño moderno oscuro, Tailwind CSS, animaciones suaves y diseño responsive.
+Version: 1.0.0
+Author: Radix Diseños
+Author URI: https://radixdisenos.com
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: radix-disenos
+Tags: construccion, muebles, carpinteria, dark-mode, tailwind, custom-header, custom-logo, custom-menu, responsive-layout, chile
+
+Radix Diseños es un tema WordPress premium diseñado para empresas de construcción y muebles a medida.
+Cuenta con diseño oscuro moderno, animaciones suaves y estética contemporánea.
+*/
+
+/* ==========================================
+   Custom Styles & Enhancements
+   ========================================== */
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Text gradient utility */
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(to right, #fff, #9ca3af);
+}
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* Custom WordPress alignment classes */
+.alignleft {
+    float: left;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.alignright {
+    float: right;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* WordPress editor styles */
+.wp-block-image {
+    margin-bottom: 1.5rem;
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
