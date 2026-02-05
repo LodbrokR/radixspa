@@ -53,9 +53,10 @@
             </div>
             
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-xs">
-                    &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. All rights reserved.
-                </p>
+                <p class="text-sm text-gray-400">
+                © <?php echo date('Y'); ?> Radix Diseños. Todos los derechos reservados.
+            </p>
+            <!-- Deploy automático funcionando ✅ - Última actualización: <?php echo date('Y-m-d H:i:s'); ?> -->
                 <div class="flex gap-6">
                     <a class="text-gray-500 hover:text-white transition-colors text-xs" href="#">Privacy Policy</a>
                     <a class="text-gray-500 hover:text-white transition-colors text-xs" href="#">Terms of Service</a>
