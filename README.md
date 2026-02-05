@@ -117,6 +117,9 @@ radix-theme/
 - **Tailwind CSS**: vía CDN
 - **Google Fonts**: Inter
 - **Material Symbols**: Google Icons
+- **Despliegue**: Automático vía GitHub Actions → FTP
+
+---
 
 ## 📝 Licencia
 
