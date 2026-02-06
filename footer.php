@@ -68,7 +68,7 @@
                 <p class="text-sm text-gray-400">
                 © <?php echo date('Y'); ?> Radix Diseños. Todos los derechos reservados.
             </p>
-            <!-- Deploy automático funcionando ✅ - Última actualización: <?php echo date('Y-m-d H:i:s'); ?> -->
+            <!-- ✅ Deploy automático FTP funcionando - Actualización: <?php echo date('Y-m-d H:i:s'); ?> -->
                 <div class="flex gap-6">
                     <a class="text-gray-400 hover:text-white transition-colors text-sm" href="<?php echo home_url('/politica-privacidad'); ?>">Política de Privacidad</a>
                     <a class="text-gray-400 hover:text-white transition-colors text-sm" href="<?php echo home_url('/terminos-servicio'); ?>">Términos de Servicio</a>
