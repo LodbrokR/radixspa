@@ -45,8 +45,8 @@
         </div>
         
         <!-- Mobile Menu Icon -->
-        <button id="mobile-menu-toggle" class="md:hidden text-white">
-            <span class="material-symbols-outlined">menu</span>
+        <button id="mobile-menu-toggle" class="md:hidden text-white p-2 focus:outline-none focus:bg-white/10 rounded-lg transition-colors cursor-pointer" type="button" aria-label="Menu">
+            <span class="material-symbols-outlined text-3xl">menu</span>
         </button>
     </div>
     
