@@ -132,6 +132,321 @@ get_header();
                     </span>
                 </div>
             </div>
+    </div>
+</div>
+
+<!-- Nosotros Section -->
+<div class="w-full bg-background-dark py-20">
+    <div class="px-4 md:px-40 max-w-[1280px] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Sobre Nosotros</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Compromiso y Calidad en el Sur de Chile</h3>
+                <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                    Con más de <?php echo date('Y') - 2015; ?> años de experiencia, nos especializamos en proyectos de construcción general, infraestructura para el área de salud y fabricación de muebles a medida.
+                </p>
+                <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                    Nuestro equipo de profesionales capacitados trabaja con los más altos estándares de calidad, garantizando resultados que superan las expectativas de nuestros clientes en cada proyecto.
+                </p>
+                <div class="grid grid-cols-3 gap-6 mt-8">
+                    <div class="text-center">
+                        <p class="text-4xl font-bold text-primary mb-2">500+</p>
+                        <p class="text-gray-400 text-sm">Proyectos Completados</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-bold text-primary mb-2"><?php echo date('Y') - 2015; ?>+</p>
+                        <p class="text-gray-400 text-sm">Años Experiencia</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-4xl font-bold text-primary mb-2">100%</p>
+                        <p class="text-gray-400 text-sm">Satisfacción</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative h-[500px] rounded-xl overflow-hidden">
+                <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800');"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Proceso de Trabajo -->
+<div class="w-full bg-surface-dark py-20 border-y border-white/5">
+    <div class="px-4 md:px-40 max-w-[1280px] mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Cómo Trabajamos</h2>
+            <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Nuestro Proceso</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="relative">
+                <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 border-2 border-primary mb-6">
+                    <span class="text-2xl font-bold text-primary">1</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Consulta Inicial</h4>
+                <p class="text-gray-400">Conversamos sobre tu proyecto, necesidades y presupuesto por WhatsApp o en persona.</p>
+            </div>
+            <div class="relative">
+                <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 border-2 border-primary mb-6">
+                    <span class="text-2xl font-bold text-primary">2</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Diseño y Presupuesto</h4>
+                <p class="text-gray-400">Creamos un diseño detallado y presupuesto transparente sin costos ocultos.</p>
+            </div>
+            <div class="relative">
+                <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 border-2 border-primary mb-6">
+                    <span class="text-2xl font-bold text-primary">3</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Ejecución</h4>
+                <p class="text-gray-400">Nuestro equipo experto trabaja con materiales de primera calidad y seguimiento constante.</p>
+            </div>
+            <div class="relative">
+                <div class="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 border-2 border-primary mb-6">
+                    <span class="text-2xl font-bold text-primary">4</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mb-3">Entrega Final</h4>
+                <p class="text-gray-400">Revisión completa, limpieza del área y garantía de satisfacción total.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- More Testimonials -->
+<div class="w-full bg-background-dark py-20">
+    <div class="px-4 md:px-40 max-w-[1280px] mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Testimonios</h2>
+            <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Lo Que Dicen Nuestros Clientes</h3>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-surface-dark p-8 rounded-xl border border-white/5">
+                <div class="flex gap-1 mb-4">
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                </div>
+                <p class="text-gray-300 mb-6 leading-relaxed">"Excelente trabajo en la remodelación de nuestro local comercial. Muy profesionales y puntuales. Los recomiendo 100%."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">MR</div>
+                    <div>
+                        <p class="text-white font-bold">María Rodríguez</p>
+                        <p class="text-gray-400 text-sm">Concepción, Bío Bío</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-surface-dark p-8 rounded-xl border border-white/5">
+                <div class="flex gap-1 mb-4">
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                </div>
+                <p class="text-gray-300 mb-6 leading-relaxed">"Los muebles de cocina quedaron hermosos. Diseño moderno, materiales de calidad y atención al detalle impecable."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">CP</div>
+                    <div>
+                        <p class="text-white font-bold">Carlos Pérez</p>
+                        <p class="text-gray-400 text-sm">Temuco, Araucanía</p>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-surface-dark p-8 rounded-xl border border-white/5">
+                <div class="flex gap-1 mb-4">
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                    <span class="material-symbols-outlined text-primary text-sm">star</span>
+                </div>
+                <p class="text-gray-300 mb-6 leading-relaxed">"Construyeron el box médico de nuestra clínica. Trabajo impecable, cumplieron todos los plazos. Muy contentos."</p>
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">AS</div>
+                    <div>
+                        <p class="text-white font-bold">Ana Silva</p>
+                        <p class="text-gray-400 text-sm">Valdivia, Los Ríos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Coverage Area Detailed -->
+<div class="w-full bg-surface-dark py-20 border-y border-white/5">
+    <div class="px-4 md:px-40 max-w-[1280px] mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Zona de Cobertura</h2>
+            <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Atendemos el Sur de Chile</h3>
+            <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Desde Chillán hasta Puerto Varas, cubriendo las principales ciudades y comunas del sur del país.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="bg-background-dark p-6 rounded-xl border border-white/5">
+                <span class="material-symbols-outlined text-primary text-3xl mb-4">location_on</span>
+                <h4 class="text-white font-bold mb-3">Región del Bío Bío</h4>
+                <ul class="text-gray-400 text-sm space-y-2">
+                    <li>• Concepción</li>
+                    <li>• Chillán</li>
+                    <li>• Los Ángeles</li>
+                    <li>• Talcahuano</li>
+                </ul>
+            </div>
+            <div class="bg-background-dark p-6 rounded-xl border border-white/5">
+                <span class="material-symbols-outlined text-primary text-3xl mb-4">location_on</span>
+                <h4 class="text-white font-bold mb-3">Región de La Araucanía</h4>
+                <ul class="text-gray-400 text-sm space-y-2">
+                    <li>• Temuco</li>
+                    <li>• Angol</li>
+                    <li>• Pucón</li>
+                    <li>• Villarrica</li>
+                </ul>
+            </div>
+            <div class="bg-background-dark p-6 rounded-xl border border-white/5">
+                <span class="material-symbols-outlined text-primary text-3xl mb-4">location_on</span>
+                <h4 class="text-white font-bold mb-3">Región de Los Ríos</h4>
+                <ul class="text-gray-400 text-sm space-y-2">
+                    <li>• Valdivia</li>
+                    <li>• Panguipulli</li>
+                    <li>• La Unión</li>
+                    <li>• Río Bueno</li>
+                </ul>
+            </div>
+            <div class="bg-background-dark p-6 rounded-xl border border-white/5">
+                <span class="material-symbols-outlined text-primary text-3xl mb-4">location_on</span>
+                <h4 class="text-white font-bold mb-3">Región de Los Lagos</h4>
+                <ul class="text-gray-400 text-sm space-y-2">
+                    <li>• Osorno</li>
+                    <li>• Puerto Montt</li>
+                    <li>• Puerto Varas</li>
+                    <li>• Castro</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="w-full bg-background-dark py-20">
+    <div class="px-4 md:px-40 max-w-[900px] mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Preguntas Frecuentes</h2>
+            <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight">¿Tienes Dudas?</h3>
+        </div>
+        <div class="space-y-4">
+            <details class="bg-surface-dark p-6 rounded-xl border border-white/5 group">
+                <summary class="text-white font-bold cursor-pointer list-none flex items-center justify-between">
+                    <span>¿Cuánto tiempo toma un proyecto típico?</span>
+                    <span class="material-symbols-outlined text-primary">expand_more</span>
+                </summary>
+                <p class="text-gray-400 mt-4 leading-relaxed">Los tiempos varían según el proyecto. Muebles a medida: 2-4 semanas. Remodelaciones: 1-3 meses. Construcciones nuevas: 3-6 meses. Te daremos un cronograma detallado en el presupuesto.</p>
+            </details>
+            <details class="bg-surface-dark p-6 rounded-xl border border-white/5 group">
+                <summary class="text-white font-bold cursor-pointer list-none flex items-center justify-between">
+                    <span>¿Qué formas de pago aceptan?</span>
+                    <span class="material-symbols-outlined text-primary">expand_more</span>
+                </summary>
+                <p class="text-gray-400 mt-4 leading-relaxed">Aceptamos transferencias bancarias, efectivo y cheques. Trabajamos con un sistema de pagos por etapas: anticipo inicial, pagos durante la obra según avance, y pago final al término.</p>
+            </details>
+            <details class="bg-surface-dark p-6 rounded-xl border border-white/5 group">
+                <summary class="text-white font-bold cursor-pointer list-none flex items-center justify-between">
+                    <span>¿Ofrecen garantía en sus trabajos?</span>
+                    <span class="material-symbols-outlined text-primary">expand_more</span>
+                </summary>
+                <p class="text-gray-400 mt-4 leading-relaxed">Sí, todos nuestros trabajos incluyen garantía. Construcción: 1 año. Muebles a medida: 2 años. Instalaciones eléctricas/sanitarias: según normativa vigente. La garantía cubre defectos de fabricación y mano de obra.</p>
+            </details>
+            <details class="bg-surface-dark p-6 rounded-xl border border-white/5 group">
+                <summary class="text-white font-bold cursor-pointer list-none flex items-center justify-between">
+                    <span>¿Necesito tener los materiales?</span>
+                    <span class="material-symbols-outlined text-primary">expand_more</span>
+                </summary>
+                <p class="text-gray-400 mt-4 leading-relaxed">No es necesario. Nosotros nos encargamos de la compra de todos los materiales con nuestros proveedores de confianza, garantizando calidad y precios competitivos. Todo incluido en el presupuesto.</p>
+            </details>
+            <details class="bg-surface-dark p-6 rounded-xl border border-white/5 group">
+                <summary class="text-white font-bold cursor-pointer list-none flex items-center justify-between">
+                    <span>¿Puedo ver trabajos anteriores?</span>
+                    <span class="material-symbols-outlined text-primary">expand_more</span>
+                </summary>
+                <p class="text-gray-400 mt-4 leading-relaxed">Por supuesto. Contáctanos por WhatsApp y te enviaremos fotos de proyectos similares al tuyo. También podemos coordinar visitas a obras en ejecución o referencias de clientes anteriores.</p>
+            </details>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Form Section -->
+<div class="w-full bg-surface-dark py-20 border-y border-white/5">
+    <div class="px-4 md:px-40 max-w-[1280px] mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Contáctanos</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight mb-6">Solicita tu Cotización</h3>
+                <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                    Completa el formulario y nos contactaremos contigo en menos de 24 horas para coordinar una visita o reunión virtual.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <span class="material-symbols-outlined text-primary mt-1">phone</span>
+                        <div>
+                            <p class="text-white font-bold">Teléfono</p>
+                            <p class="text-gray-400">+56 9 6825 2440</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="material-symbols-outlined text-primary mt-1">mail</span>
+                        <div>
+                            <p class="text-white font-bold">Email</p>
+                            <p class="text-gray-400">contacto@radixdisenos.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <span class="material-symbols-outlined text-primary mt-1">schedule</span>
+                        <div>
+                            <p class="text-white font-bold">Horario</p>
+                            <p class="text-gray-400">Lun - Vie: 9:00 AM - 6:00 PM<br>Sáb: 10:00 AM - 2:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <form id="contact-form" class="space-y-4" method="post" action="<?php echo admin_url('admin-post.php'); ?>">
+                    <input type="hidden" name="action" value="radix_contact_form">
+                    <?php wp_nonce_field('radix_contact_form_nonce', 'contact_nonce'); ?>
+                    
+                    <div>
+                        <label class="block text-white font-bold mb-2" for="name">Nombre Completo *</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 bg-background-dark border border-white/10 rounded-lg text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                    </div>
+                    <div>
+                        <label class="block text-white font-bold mb-2" for="email">Email *</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 bg-background-dark border border-white/10 rounded-lg text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                    </div>
+                    <div>
+                        <label class="block text-white font-bold mb-2" for="phone">Teléfono *</label>
+                        <input type="tel" id="phone" name="phone" required class="w-full px-4 py-3 bg-background-dark border border-white/10 rounded-lg text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                    </div>
+                    <div>
+                        <label class="block text-white font-bold mb-2" for="service">Tipo de Servicio *</label>
+                        <select id="service" name="service" required class="w-full px-4 py-3 bg-background-dark border border-white/10 rounded-lg text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20">
+                            <option value="">Selecciona un servicio</option>
+                            <option value="area-salud">Área de Salud</option>
+                            <option value="construccion">Construcción General</option>
+                            <option value="muebles">Muebles a Medida</option>
+                            <option value="remodelacion">Remodelación</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-white font-bold mb-2" for="message">Mensaje *</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 bg-background-dark border border-white/10 rounded-lg text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full h-12 px-8 rounded-lg bg-primary hover:bg-amber-600 text-white font-bold transition-all shadow-lg shadow-amber-900/50 flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined">send</span>
+                        Enviar Solicitud
+                    </button>
+                    <p class="text-gray-500 text-xs text-center">También puedes contactarnos directamente por <a href="https://wa.me/56968252440" target="_blank" class="text-primary hover:underline">WhatsApp</a></p>
+                </form>
+            </div>
         </div>
     </div>
 </div>

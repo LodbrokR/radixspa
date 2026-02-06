@@ -216,6 +216,46 @@ function radix_customize_register($wp_customize) {
 }
 add_action('customize_register', 'radix_customize_register');
 
+// Contact Form Handler
+function radix_handle_contact_form() {
+    // Verify nonce
+    if (!isset($_POST['contact_nonce']) || !wp_verify_nonce($_POST['contact_nonce'], 'radix_contact_form_nonce')) {
+        wp_die('Error de seguridad. Por favor intenta nuevamente.');
+    }
+
+    // Sanitize form data
+    $name = sanitize_text_field($_POST['name']);
+    $email = sanitize_email($_POST['email']);
+    $phone = sanitize_text_field($_POST['phone']);
+    $service = sanitize_text_field($_POST['service']);
+    $message = sanitize_textarea_field($_POST['message']);
+
+    // Prepare email
+    $to = get_theme_mod('radix_company_email', 'contacto@radixdisenos.com');
+    $subject = 'Nueva Solicitud de Cotización - Radix Diseños';
+    $body = "Nueva solicitud de cotización:\n\n";
+    $body .= "Nombre: $name\n";
+    $body .= "Email: $email\n";
+    $body .= "Teléfono: $phone\n";
+    $body .= "Servicio: $service\n\n";
+    $body .= "Mensaje:\n$message\n";
+    
+    $headers = array('Content-Type: text/plain; charset=UTF-8', "Reply-To: $email");
+
+    // Send email
+    $sent = wp_mail($to, $subject, $body, $headers);
+
+    // Redirect back with status
+    if ($sent) {
+        wp_redirect(add_query_arg('contact', 'success', home_url('/')));
+    } else {
+        wp_redirect(add_query_arg('contact', 'error', home_url('/')));
+    }
+    exit;
+}
+add_action('admin_post_nopriv_radix_contact_form', 'radix_handle_contact_form');
+add_action('admin_post_radix_contact_form', 'radix_handle_contact_form');
+
 /**
  * Disable file editing from WordPress admin for security
  */
