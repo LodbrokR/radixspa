@@ -542,7 +542,7 @@ function radix_scripts() {
         true
     );
 }
-add_action('wp_enqueue_scripts', 'radix_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'radix_scripts');
 
 /**
  * Customizer Settings
