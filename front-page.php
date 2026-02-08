@@ -176,9 +176,6 @@ get_header();
                 <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Nuestros Servicios</h2>
                 <h3 class="text-3xl md:text-4xl font-bold text-white tracking-tight">Calidad y compromiso en cada proyecto</h3>
             </div>
-            <a class="hidden md:flex items-center gap-2 text-white/70 hover:text-white transition-colors mt-4 md:mt-0" href="#">
-                Ver todos los servicios <span class="material-symbols-outlined text-sm">arrow_forward</span>
-            </a>
         </div>
         
         <!-- Services Grid -->
