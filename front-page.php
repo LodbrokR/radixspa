@@ -183,8 +183,8 @@ get_header();
         
         <!-- Services Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            <!-- Card 1: Área Salud -->
-            <div class="group relative overflow-hidden rounded-xl h-[500px] cursor-pointer">
+            <!-- Card 1: Área de Salud -->
+            <a href="<?php echo home_url('/area-de-salud'); ?>" class="group relative overflow-hidden rounded-xl h-[500px] block">
                 <!-- Imagen: Interior clínica moderna -->
                 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
@@ -200,7 +200,7 @@ get_header();
                         Más Información <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </span>
                 </div>
-            </div>
+            </a>
             
             <!-- Card 2: Construcción General -->
             <a href="<?php echo home_url('/construccion-general'); ?>" class="group relative overflow-hidden rounded-xl h-[500px] block">
