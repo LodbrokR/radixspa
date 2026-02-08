@@ -1,0 +1,12 @@
+{
+  "name": "radix-theme",
+  "version": "1.0.0",
+  "description": "Radix Diseños WordPress Theme",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.min.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./assets/css/tailwind.min.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

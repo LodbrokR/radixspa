@@ -1,42 +1,7 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# WordPress
-*.log
-.htaccess
-
-# OS Files
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# Editor directories and files
-.vscode/
-.idea/
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-*~
-
-# Temporary files
-*.tmp
-*.bak
-*.cache
-
-# Node modules (if using build process)
+# Tailwind Build Files
 node_modules/
-npm-debug.log*
+package-lock.json
 
-# Compiled files
-*.zip
-*.tar.gz
-*.rar
-
-# Environment files
-.env
-.env.local
-.env.production
-
-# Screenshots (auto-generated)
-screenshot-*.png
+# Theme files
+.DS_Store
+*.log

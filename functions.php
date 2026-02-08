@@ -90,7 +90,6 @@ add_action('wp_head', function() {
     echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
     echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
     echo '<link rel="dns-prefetch" href="//images.unsplash.com">';
-    echo '<link rel="dns-prefetch" href="//cdn.tailwindcss.com">';
 }, 1);
 
 // 7. Defer non-critical CSS (Material Symbols)
@@ -524,20 +523,6 @@ function radix_enqueue_scripts() {
         array(),
         null
     );
-    
-    // Tailwind CDN - Must load synchronously to apply styles
-    wp_enqueue_script(
-        'radix-tailwind',
-        'https://cdn.tailwindcss.com?plugins=forms,container-queries',
-        array(),
-        null,
-        false
-    );
-    
-    // Tailwind configuration with system fonts
-    $tailwind_config = "
-        tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
