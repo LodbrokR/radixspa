@@ -71,6 +71,56 @@ function remove_query_strings_from_static_resources($src) {
     return $src;
 }
 
+// 5. Async CSS Loading - Prevents render blocking
+add_filter('style_loader_tag', function($tag, $handle, $href) {
+    // Lista de CSS que queremos cargar async (no críticos)
+    $async_styles = array('custom-style'); // Handle del custom.css
+    
+    if (in_array($handle, $async_styles)) {
+        // Convertir a preload + async
+        return '<link rel="preload" href="' . $href . '" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . 
+               '<noscript><link rel="stylesheet" href="' . $href . '"></noscript>';
+    }
+    
+    return $tag;
+}, 10, 3);
+
+// 6. Preconnect to external domains (faster DNS resolution)
+add_action('wp_head', function() {
+    echo '<link rel="preconnect" href="https://fonts.googleapis.com">';
+    echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>';
+    echo '<link rel="dns-prefetch" href="//images.unsplash.com">';
+    echo '<link rel="dns-prefetch" href="//cdn.tailwindcss.com">';
+}, 1);
+
+// 7. Defer non-critical CSS (Material Symbols)
+add_filter('style_loader_tag', function($html, $handle) {
+    if (strpos($html, 'fonts.googleapis.com') !== false && strpos($html, 'Material') !== false) {
+        // Cargar con media print y cambiar a all cuando cargue
+        return str_replace("rel='stylesheet'", "rel='stylesheet' media='print' onload=\"this.media='all'\"", $html);
+    }
+    return $html;
+}, 20, 2);
+
+// 8. Critical CSS inline (básico)
+add_action('wp_head', function() {
+    ?>
+    <style id="critical-css">
+    /* Critical CSS - Above the fold */
+    body{margin:0;overflow-x:hidden;background:#0f172a;color:#fff}
+    .fixed{position:fixed}
+    .z-50{z-index:50}
+    .w-full{width:100%}
+    .flex{display:flex}
+    .items-center{align-items:center}
+    .justify-between{justify-content:space-between}
+    nav{background:rgba(15,23,42,0.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05)}
+    .logo-container{display:flex;align-items:center;gap:20px;color:#fff;text-decoration:none}
+    .logo-glassmorphism{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;background:rgba(255,255,255,0.15);backdrop-filter:blur(16px);border-radius:14px;border:1px solid rgba(255,255,255,0.25)}
+    </style>
+    <?php
+}, 0);
+
 
 /**
  * Radix Diseños Theme Functions
