@@ -1,6 +1,16 @@
 <?php
 // Include proyecto description metabox
 require_once get_template_directory() . '/inc/proyecto-description-metabox.php';
+
+// Disable wpautop for service pages (prevents auto <br> and <p> tags)
+add_filter('the_content', function($content) {
+    if (is_page(array('area-de-salud', 'construccion-general', 'muebles-a-medida'))) {
+        remove_filter('the_content', 'wpautop');
+        remove_filter('the_content', 'wptexturize');
+    }
+    return $content;
+}, 9);
+
 /**
  * Radix Diseños Theme Functions
  * 
