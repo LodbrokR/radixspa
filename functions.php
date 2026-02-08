@@ -15,25 +15,31 @@ add_filter('the_content', function($content) {
 // PERFORMANCE OPTIMIZATIONS
 // ============================================
 
-// 1. Remove Google Fonts loaded by WordPress/plugins
+// 1. Remove Google Fonts loaded by WordPress/plugins (pero PERMITIR Material Symbols)
 add_filter('style_loader_tag', function($html, $handle) {
-    if (strpos($html, 'fonts.googleapis.com') !== false) {
+    // Solo bloquear si contiene fonts.googleapis pero NO Material Symbols
+    if (strpos($html, 'fonts.googleapis.com') !== false 
+        && strpos($html, 'Material+Symbols') === false
+        && strpos($html, 'Material%20Symbols') === false) {
         return '';
     }
     return $html;
 }, 10, 2);
 
 add_filter('script_loader_tag', function($html, $handle) {
-    if (strpos($html, 'fonts.googleapis.com') !== false) {
+    if (strpos($html, 'fonts.googleapis.com') !== false 
+        && strpos($html, 'Material+Symbols') === false
+        && strpos($html, 'Material%20Symbols') === false) {
         return '';
     }
     return $html;
 }, 10, 2);
 
-// Block Google Fonts from wp_head
+// Block Google Fonts from wp_head (excepto Material Symbols)
 add_action('wp_head', function() {
     ob_start(function($buffer) {
-        return preg_replace('/<link[^>]*fonts\.googleapis\.com[^>]*>/i', '', $buffer);
+        // Buscar y eliminar links de Google Fonts que NO sean Material Symbols
+        return preg_replace('/<link[^>]*fonts\.googleapis\.com(?!.*Material[\+%20]?Symbols)[^>]*>/i', '', $buffer);
     });
 }, 0);
 
