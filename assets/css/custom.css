@@ -18,6 +18,28 @@ h6 {
     font-family: var(--font-display);
 }
 
+/* Logo Container - Desktop & Mobile */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo-container:hover {
+    opacity: 0.8;
+}
+
+/* Mobile: Center logo */
+@media (max-width: 768px) {
+    .logo-container {
+        flex: 1;
+        justify-content: center;
+    }
+}
+
 /* Logo Glassmorphism Effect */
 .logo-glassmorphism {
     display: inline-flex;
@@ -34,7 +56,7 @@ h6 {
     transition: all 0.3s ease;
 }
 
-.logo-glassmorphism:hover {
+.logo-container:hover .logo-glassmorphism {
     background: rgba(255, 255, 255, 0.12);
     border-color: rgba(255, 255, 255, 0.18);
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2),
@@ -46,6 +68,28 @@ h6 {
     height: 45px;
     width: auto;
     display: block;
+}
+
+/* Logo Tagline */
+.logo-tagline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.tagline-text {
+    font-size: 12px;
+    font-weight: 300;
+    color: #9ca3af;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+/* Mobile: Hide tagline for cleaner look */
+@media (max-width: 640px) {
+    .logo-tagline {
+        display: none;
+    }
 }
 
 /* Custom Logo Styles */
