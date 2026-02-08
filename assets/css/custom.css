@@ -32,10 +32,25 @@ h6 {
     opacity: 0.9;
 }
 
+/* Navigation Container - Mobile Centering Fix */
+@media (max-width: 768px) {
+    .nav-container {
+        justify-content: center !important;
+        position: relative;
+    }
+
+    #mobile-menu-toggle {
+        position: absolute;
+        right: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
 /* Mobile: Center logo */
 @media (max-width: 768px) {
     .logo-container {
-        flex: 1;
+        flex: 0 0 auto;
         justify-content: center;
     }
 }

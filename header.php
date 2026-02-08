@@ -10,7 +10,7 @@
 
 <!-- Sticky Navigation Bar -->
 <nav class="fixed top-0 left-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-white/5">
-    <div class="px-4 md:px-10 lg:px-40 py-3 flex items-center justify-between">
+    <div class="nav-container px-4 md:px-10 lg:px-40 py-3 flex items-center justify-between">
         <a href="<?php echo home_url('/'); ?>" class="logo-container">
             <?php if (has_custom_logo()) : ?>
                 <div class="logo-glassmorphism">
