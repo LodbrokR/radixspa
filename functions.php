@@ -11,6 +11,61 @@ add_filter('the_content', function($content) {
     return $content;
 }, 9);
 
+// ============================================
+// PERFORMANCE OPTIMIZATIONS
+// ============================================
+
+// 1. Remove Google Fonts loaded by WordPress/plugins
+add_filter('style_loader_tag', function($html, $handle) {
+    if (strpos($html, 'fonts.googleapis.com') !== false) {
+        return '';
+    }
+    return $html;
+}, 10, 2);
+
+add_filter('script_loader_tag', function($html, $handle) {
+    if (strpos($html, 'fonts.googleapis.com') !== false) {
+        return '';
+    }
+    return $html;
+}, 10, 2);
+
+// Block Google Fonts from wp_head
+add_action('wp_head', function() {
+    ob_start(function($buffer) {
+        return preg_replace('/<link[^>]*fonts\.googleapis\.com[^>]*>/i', '', $buffer);
+    });
+}, 0);
+
+add_action('wp_footer', function() {
+    ob_end_flush();
+}, 999);
+
+// 2. Disable WordPress Emoji (saves 5KB+)
+remove_action('wp_head', 'print_emoji_detection_script', 7);
+remove_action('wp_print_styles', 'print_emoji_styles');
+remove_action('admin_print_scripts', 'print_emoji_detection_script');
+remove_action('admin_print_styles', 'print_emoji_styles');
+remove_filter('the_content_feed', 'wp_staticize_emoji');
+remove_filter('comment_text_rss', 'wp_staticize_emoji');
+remove_filter('wp_mail', 'wp_staticize_emoji_for_email');
+
+// 3. Disable WP Embed (saves bandwidth)
+add_action('wp_footer', function() {
+    wp_deregister_script('wp-embed');
+});
+
+// 4. Remove query strings from static resources (for better caching)
+add_filter('style_loader_src', 'remove_query_strings_from_static_resources', 10, 2);
+add_filter('script_loader_src', 'remove_query_strings_from_static_resources', 10, 2);
+function remove_query_strings_from_static_resources($src) {
+    if (strpos($src, '?ver=')) {
+        $src = remove_query_arg('ver', $src);
+    }
+    return $src;
+}
+
+
 /**
  * Radix Diseños Theme Functions
  * 
