@@ -13,7 +13,7 @@
     <div class="px-4 md:px-10 lg:px-40 py-3 flex items-center justify-between">
         <a href="<?php echo home_url('/'); ?>" class="flex items-center gap-2 text-white hover:opacity-80 transition-opacity">
             <?php if (has_custom_logo()) : ?>
-                <div class="custom-logo-container">
+                <div class="logo-glassmorphism">
                     <?php the_custom_logo(); ?>
                 </div>
             <?php else : ?>
