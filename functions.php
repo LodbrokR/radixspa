@@ -106,14 +106,14 @@ add_action('wp_head', function() {
     ?>
     <style id="critical-css">
     /* Critical CSS - Above the fold */
-    body{margin:0;overflow-x:hidden;background:#0f172a;color:#fff}
+    body{margin:0;overflow-x:hidden;background:#0a0a0a;color:#fff}
     .fixed{position:fixed}
     .z-50{z-index:50}
     .w-full{width:100%}
     .flex{display:flex}
     .items-center{align-items:center}
     .justify-between{justify-content:space-between}
-    nav{background:rgba(15,23,42,0.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05)}
+    nav{background:rgba(10,10,10,0.8);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05)}
     .logo-container{display:flex;align-items:center;gap:20px;color:#fff;text-decoration:none}
     .logo-glassmorphism{display:inline-flex;align-items:center;justify-content:center;padding:10px 18px;background:rgba(255,255,255,0.15);backdrop-filter:blur(16px);border-radius:14px;border:1px solid rgba(255,255,255,0.25)}
     </style>
