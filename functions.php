@@ -1,4 +1,6 @@
 <?php
+// Include proyecto description metabox
+require_once get_template_directory() . '/inc/proyecto-description-metabox.php';
 /**
  * Radix Diseños Theme Functions
  * 
@@ -112,13 +114,24 @@ add_action('init', 'radix_register_proyectos_cpt');
  * Add Meta Boxes for Proyecto Gallery
  */
 function radix_proyecto_meta_boxes() {
+    // Meta box de descripción (más intuitivo)
+    add_meta_box(
+        'proyecto_descripcion',
+        '📝 Información del Proyecto',
+        'radix_proyecto_descripcion_callback',
+        'proyecto',
+        'normal',
+        'high'
+    );
+    
+    // Meta box de galería
     add_meta_box(
         'proyecto_gallery',
         '📸 Galería del Proyecto',
         'radix_proyecto_gallery_callback',
         'proyecto',
         'normal',
-        'high'
+        'default'
     );
 }
 add_action('add_meta_boxes', 'radix_proyecto_meta_boxes');
@@ -345,6 +358,19 @@ function radix_proyecto_gallery_callback($post) {
  * Save Proyecto Meta Data
  */
 function radix_save_proyecto_meta($post_id) {
+    // Descripción
+    if (isset($_POST['proyecto_descripcion_nonce']) && wp_verify_nonce($_POST['proyecto_descripcion_nonce'], 'radix_proyecto_descripcion_nonce')) {
+        if (isset($_POST['proyecto_descripcion'])) {
+            update_post_meta($post_id, '_proyecto_descripcion', sanitize_textarea_field($_POST['proyecto_descripcion']));
+        }
+        if (isset($_POST['proyecto_caracteristicas'])) {
+            update_post_meta($post_id, '_proyecto_caracteristicas', sanitize_textarea_field($_POST['proyecto_caracteristicas']));
+        }
+        if (isset($_POST['proyecto_materiales'])) {
+            update_post_meta($post_id, '_proyecto_materiales', sanitize_text_field($_POST['proyecto_materiales']));
+        }
+    }
+    
     // Gallery
     if (isset($_POST['proyecto_gallery_nonce']) && wp_verify_nonce($_POST['proyecto_gallery_nonce'], 'radix_proyecto_gallery_nonce')) {
         if (isset($_POST['proyecto_gallery_ids'])) {
