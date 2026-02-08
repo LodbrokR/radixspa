@@ -34,7 +34,7 @@ function radix_theme_setup() {
     
     // Register navigation menus
     register_nav_menus(array(
-        'primary' => __('Primary Menu', 'radix-disenos'),
+        'primary' => __('Menú Principal', 'radix-spa'),
     ));
     
     // Switch default core markup to output valid HTML5
@@ -47,6 +47,313 @@ function radix_theme_setup() {
     ));
 }
 add_action('after_setup_theme', 'radix_theme_setup');
+
+/**
+ * Register Custom Post Type: Proyectos
+ */
+function radix_register_proyectos_cpt() {
+    $labels = array(
+        'name'                  => 'Proyectos',
+        'singular_name'         => 'Proyecto',
+        'menu_name'             => 'Proyectos',
+        'add_new'               => 'Añadir Nuevo',
+        'add_new_item'          => 'Añadir Nuevo Proyecto',
+        'edit_item'             => 'Editar Proyecto',
+        'new_item'              => 'Nuevo Proyecto',
+        'view_item'             => 'Ver Proyecto',
+        'search_items'          => 'Buscar Proyectos',
+        'not_found'             => 'No se encontraron proyectos',
+        'not_found_in_trash'    => 'No hay proyectos en la papelera',
+    );
+
+    $args = array(
+        'labels'                => $labels,
+        'public'                => true,
+        'has_archive'           => true,
+        'publicly_queryable'    => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'query_var'             => true,
+        'rewrite'               => array('slug' => 'proyectos'),
+        'capability_type'       => 'post',
+        'menu_icon'             => 'dashicons-portfolio',
+        'supports'              => array('title', 'editor', 'thumbnail'),
+        'show_in_rest'          => true, // Gutenberg support
+    );
+
+    register_post_type('proyecto', $args);
+
+    // Register taxonomy for project categories
+    $tax_labels = array(
+        'name'              => 'Categorías de Proyecto',
+        'singular_name'     => 'Categoría',
+        'search_items'      => 'Buscar Categorías',
+        'all_items'         => 'Todas las Categorías',
+        'edit_item'         => 'Editar Categoría',
+        'update_item'       => 'Actualizar Categoría',
+        'add_new_item'      => 'Añadir Nueva Categoría',
+        'new_item_name'     => 'Nombre de Nueva Categoría',
+        'menu_name'         => 'Categorías',
+    );
+
+    register_taxonomy('categoria-proyecto', 'proyecto', array(
+        'hierarchical'      => true,
+        'labels'            => $tax_labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => array('slug' => 'categoria-proyecto'),
+        'show_in_rest'      => true,
+    ));
+}
+add_action('init', 'radix_register_proyectos_cpt');
+
+/**
+ * Add Meta Boxes for Proyecto Gallery
+ */
+function radix_proyecto_meta_boxes() {
+    add_meta_box(
+        'proyecto_gallery',
+        '📸 Galería del Proyecto',
+        'radix_proyecto_gallery_callback',
+        'proyecto',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'radix_proyecto_meta_boxes');
+
+/**
+ * Gallery Meta Box Callback
+ */
+function radix_proyecto_gallery_callback($post) {
+    wp_nonce_field('radix_proyecto_gallery_nonce', 'proyecto_gallery_nonce');
+    $gallery_ids = get_post_meta($post->ID, '_proyecto_gallery', true);
+    ?>
+    <div class="radix-gallery-container">
+        <div class="radix-gallery-description">
+            <p><strong>📷 Añade las imágenes de tu proyecto</strong></p>
+            <p>Puedes seleccionar múltiples imágenes a la vez. Estas aparecerán en la galería del proyecto.</p>
+        </div>
+        
+        <div id="proyecto-gallery-images" class="radix-gallery-grid">
+            <?php
+            if ($gallery_ids) {
+                $ids = explode(',', $gallery_ids);
+                foreach ($ids as $img_id) {
+                    if ($img_id) {
+                        $img = wp_get_attachment_image_src($img_id, 'medium');
+                        if ($img) {
+                            echo '<div class="radix-gallery-item" data-id="' . $img_id . '">
+                                <img src="' . $img[0] . '" alt="Imagen de galería" />
+                                <button type="button" class="radix-remove-image" title="Eliminar imagen">&times;</button>
+                            </div>';
+                        }
+                    }
+                }
+            }
+            ?>
+        </div>
+        
+        <input type="hidden" id="proyecto_gallery_ids" name="proyecto_gallery_ids" value="<?php echo esc_attr($gallery_ids); ?>" />
+        
+        <div class="radix-gallery-actions">
+            <button type="button" class="button button-primary button-large" id="add-gallery-images">
+                <span class="dashicons dashicons-images-alt2" style="margin-top: 3px;"></span>
+                Añadir Imágenes
+            </button>
+        </div>
+    </div>
+    
+    <style>
+        .radix-gallery-container {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .radix-gallery-description {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: white;
+            border-left: 4px solid #2271b1;
+            border-radius: 4px;
+        }
+        
+        .radix-gallery-description p {
+            margin: 0 0 8px 0;
+        }
+        
+        .radix-gallery-description p:last-child {
+            margin-bottom: 0;
+            color: #646970;
+            font-size: 13px;
+        }
+        
+        .radix-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+            min-height: 100px;
+        }
+        
+        .radix-gallery-grid:empty::before {
+            content: "📷 No hay imágenes en la galería. Haz clic en 'Añadir Imágenes' para comenzar.";
+            grid-column: 1 / -1;
+            padding: 40px 20px;
+            text-align: center;
+            color: #8c8f94;
+            font-size: 14px;
+            background: white;
+            border: 2px dashed #c3c4c7;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .radix-gallery-item {
+            position: relative;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+            transition: all 0.2s ease;
+            aspect-ratio: 1;
+        }
+        
+        .radix-gallery-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .radix-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .radix-remove-image {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .radix-gallery-item:hover .radix-remove-image {
+            opacity: 1;
+        }
+        
+        .radix-remove-image:hover {
+            background: #c82333;
+            transform: scale(1.1);
+        }
+        
+        .radix-gallery-actions {
+            display: flex;
+            justify-content: center;
+            padding-top: 10px;
+        }
+        
+        #add-gallery-images {
+            padding: 8px 24px;
+            height: auto;
+            font-size: 14px;
+        }
+    </style>
+    
+    <script>
+    jQuery(document).ready(function($) {
+        var frame;
+        var galleryContainer = $('#proyecto-gallery-images');
+        var galleryInput = $('#proyecto_gallery_ids');
+
+        // Add images
+        $('#add-gallery-images').on('click', function(e) {
+            e.preventDefault();
+            
+            if (frame) {
+                frame.open();
+                return;
+            }
+            
+            frame = wp.media({
+                title: 'Seleccionar Imágenes de Galería',
+                button: { text: 'Añadir a Galería' },
+                multiple: true
+            });
+            
+            frame.on('select', function() {
+                var attachments = frame.state().get('selection').toJSON();
+                var currentIds = galleryInput.val() ? galleryInput.val().split(',') : [];
+                
+                attachments.forEach(function(attachment) {
+                    if (currentIds.indexOf(attachment.id.toString()) === -1) {
+                        currentIds.push(attachment.id);
+                        var imgUrl = attachment.sizes && attachment.sizes.medium ? attachment.sizes.medium.url : attachment.url;
+                        galleryContainer.append(
+                            '<div class="radix-gallery-item" data-id="' + attachment.id + '">' +
+                            '<img src="' + imgUrl + '" alt="Imagen de galería" />' +
+                            '<button type="button" class="radix-remove-image" title="Eliminar imagen">&times;</button>' +
+                            '</div>'
+                        );
+                    }
+                });
+                
+                galleryInput.val(currentIds.join(','));
+            });
+            
+            frame.open();
+        });
+        
+        // Remove image
+        galleryContainer.on('click', '.radix-remove-image', function(e) {
+            e.preventDefault();
+            var imageDiv = $(this).parent();
+            var imageId = imageDiv.data('id');
+            var currentIds = galleryInput.val().split(',');
+            currentIds = currentIds.filter(function(id) { return id != imageId; });
+            galleryInput.val(currentIds.join(','));
+            imageDiv.fadeOut(200, function() { $(this).remove(); });
+        });
+    });
+    </script>
+    <?php
+}
+
+
+
+
+/**
+ * Save Proyecto Meta Data
+ */
+function radix_save_proyecto_meta($post_id) {
+    // Gallery
+    if (isset($_POST['proyecto_gallery_nonce']) && wp_verify_nonce($_POST['proyecto_gallery_nonce'], 'radix_proyecto_gallery_nonce')) {
+        if (isset($_POST['proyecto_gallery_ids'])) {
+            update_post_meta($post_id, '_proyecto_gallery', sanitize_text_field($_POST['proyecto_gallery_ids']));
+        }
+    }
+}
+add_action('save_post_proyecto', 'radix_save_proyecto_meta');
+
 
 /**
  * Enqueue scripts and styles
@@ -63,23 +370,15 @@ function radix_enqueue_scripts() {
         '1.0.0'
     );
     
-    // Enqueue Google Fonts
-    wp_enqueue_style(
-        'radix-google-fonts',
-        'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap',
-        array(),
-        null
-    );
-    
-    // Enqueue Material Symbols Icons
+    // Material Symbols Icons (optimized, display=block prevents render blocking)
     wp_enqueue_style(
         'radix-material-icons',
-        'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap',
+        'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL@20..48,100..700,0..1&display=block',
         array(),
         null
     );
     
-    // Enqueue Tailwind CSS from CDN
+    // Tailwind CDN - Must load synchronously to apply styles
     wp_enqueue_script(
         'radix-tailwind',
         'https://cdn.tailwindcss.com?plugins=forms,container-queries',
@@ -88,7 +387,7 @@ function radix_enqueue_scripts() {
         false
     );
     
-    // Add Tailwind configuration inline
+    // Tailwind configuration with system fonts
     $tailwind_config = "
         tailwind.config = {
             darkMode: 'class',
@@ -101,14 +400,8 @@ function radix_enqueue_scripts() {
                         'surface-dark': '#0a0a0a',
                     },
                     fontFamily: {
-                        'display': ['Inter', 'sans-serif'],
-                        'body': ['Inter', 'sans-serif'],
-                    },
-                    borderRadius: {
-                        'DEFAULT': '0.25rem',
-                        'lg': '0.5rem',
-                        'xl': '0.75rem',
-                        'full': '9999px'
+                        'display': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        'body': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
                     },
                 },
             },
@@ -121,7 +414,7 @@ function radix_enqueue_scripts() {
         'radix-main',
         get_template_directory_uri() . '/assets/js/main.js',
         array(),
-        '1.0.0',
+        time(), // Force cache bust
         true
     );
 }
@@ -183,7 +476,7 @@ function radix_customize_register($wp_customize) {
     
     // Company Email
     $wp_customize->add_setting('radix_company_email', array(
-        'default'           => 'contacto@radixdisenos.com',
+        'default'           => 'contacto@radixspa.cl',
         'sanitize_callback' => 'sanitize_email',
     ));
     $wp_customize->add_control('radix_company_email', array(
@@ -229,16 +522,20 @@ function radix_handle_contact_form() {
     $phone = sanitize_text_field($_POST['phone']);
     $service = sanitize_text_field($_POST['service']);
     $message = sanitize_textarea_field($_POST['message']);
+    $proyecto = isset($_POST['proyecto_interes']) ? sanitize_text_field($_POST['proyecto_interes']) : '';
 
     // Prepare email
-    $to = get_theme_mod('radix_company_email', 'contacto@radixdisenos.com');
-    $subject = 'Nueva Solicitud de Cotización - Radix Diseños';
+    $to = get_theme_mod('radix_company_email', 'contacto@radixspa.cl');
+    $subject = $proyecto ? "Interés en Proyecto: $proyecto - Radix Diseños" : 'Nueva Solicitud de Cotización - Radix Diseños';
     $body = "Nueva solicitud de cotización:\n\n";
     $body .= "Nombre: $name\n";
     $body .= "Email: $email\n";
     $body .= "Teléfono: $phone\n";
-    $body .= "Servicio: $service\n\n";
-    $body .= "Mensaje:\n$message\n";
+    $body .= "Servicio: $service\n";
+    if ($proyecto) {
+        $body .= "Proyecto de Interés: $proyecto\n";
+    }
+    $body .= "\nMensaje:\n$message\n";
     
     $headers = array('Content-Type: text/plain; charset=UTF-8', "Reply-To: $email");
 

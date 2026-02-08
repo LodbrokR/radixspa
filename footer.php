@@ -32,9 +32,9 @@
             <div class="flex flex-col gap-4">
                 <h3 class="text-lg font-bold text-white">Contacto</h3>
                 <div class="flex flex-col gap-2">
-                    <a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="mailto:<?php echo esc_attr(get_theme_mod('radix_company_email', 'contacto@radixdisenos.com')); ?>">
-                        <span class="material-symbols-outlined text-sm">mail</span>
-                        <?php echo esc_html(get_theme_mod('radix_company_email', 'contacto@radixdisenos.com')); ?>
+                    <a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="mailto:<?php echo esc_attr(get_theme_mod('radix_company_email', 'contacto@radixspa.cl')); ?>">
+                        <span class="material-symbols-outlined text-sm">email</span>
+                        <?php echo esc_html(get_theme_mod('radix_company_email', 'contacto@radixspa.cl')); ?>
                     </a>
                     <a class="text-gray-400 hover:text-white transition-colors flex items-center gap-2" href="tel:<?php echo esc_attr(str_replace(' ', '', get_theme_mod('radix_company_phone', '+56 9 6825 2440'))); ?>">
                         <span class="material-symbols-outlined text-sm">phone</span>
@@ -79,5 +79,107 @@
 </div>
 
 <?php wp_footer(); ?>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Radix Mobile Menu JS Loaded');
+    
+    var btn = document.getElementById('mobile-menu-toggle');
+    var menu = document.getElementById('mobile-menu');
+    
+    if(btn && menu) {
+        console.log('Menu elements found');
+        
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Toggle display with setAttribute to override !important
+            var currentDisplay = menu.style.display;
+            if(currentDisplay === 'none' || currentDisplay === '') {
+                menu.setAttribute('style', 'display: block !important;');
+                console.log('Menu opened - display set to block');
+            } else {
+                menu.setAttribute('style', 'display: none !important;');
+                console.log('Menu closed - display set to none');
+            }
+            
+            // Toggle icon
+            var icon = btn.querySelector('.material-symbols-outlined');
+            if(icon) {
+                icon.textContent = menu.style.display === 'none' ? 'menu' : 'close';
+            }
+        });
+        
+        // Close on link click
+        var links = menu.querySelectorAll('a');
+        links.forEach(function(link) {
+            link.addEventListener('click', function() {
+                menu.setAttribute('style', 'display: none !important;');
+                console.log('Menu closed by link click');
+                var icon = btn.querySelector('.material-symbols-outlined');
+                if(icon) icon.textContent = 'menu';
+            });
+        });
+        
+        // Close on outside click
+        document.addEventListener('click', function(e) {
+            if(!menu.contains(e.target) && !btn.contains(e.target) && menu.style.display !== 'none') {
+                menu.setAttribute('style', 'display: none !important;');
+                console.log('Menu closed by outside click');
+                var icon = btn.querySelector('.material-symbols-outlined');
+                if(icon) icon.textContent = 'menu';
+            }
+        });
+    } else {
+        console.log('Menu elements NOT found');
+    }
+});
+</script>
+<style>
+/* Force mobile menu visibility on small screens */
+@media (min-width: 768px) {
+    #mobile-menu {
+        display: none !important;
+    }
+}
+</style>
+
+<!-- Inline Marquee CSS (garantiza que siempre se cargue) -->
+<style>
+.marquee-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.marquee-content {
+    display: flex;
+    animation: marquee 30s linear infinite;
+    will-change: transform;
+}
+
+.marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0 3rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+}
+</style>
+
 </body>
 </html>

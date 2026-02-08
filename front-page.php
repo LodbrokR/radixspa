@@ -8,11 +8,12 @@ get_header();
 ?>
 
 <!-- Hero Section -->
-<div class="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden">
+<div id="inicio" class="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden">
     <!-- Background Image with Overlay -->
     <?php 
     $hero_bg = get_theme_mod('radix_hero_bg_image');
-    $default_bg = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDCK0BTD8jAGctQC5Sxs04KSfsCeN5RUPSQ30Z0CkXHm0FW-4duRdlIAsEy6w9T01qrjV5Wv_LpbvI5u0dbeMIKCc-pC2f6nww6x37xZtvDBB7qlb3vy9PtXCD0iHj1mrf53tSeKi8qBU5WQ3J2jAjfOlADfgxPz0P1bsGkALWWwEy31YqTcLEdxwUwgMpsLfQZ6vB6y3FsM9cA5GyzuDe2ZfBznod2U9O-64slT7NQJXNTa-QbFCZJTFPFmTCSqlPdZBg9dMXykIIk';
+    // Imagen Hero: Taller de carpintería profesional
+    $default_bg = get_template_directory_uri() . '/assets/images/hero-taller.webp';
     $bg_image = $hero_bg ? $hero_bg : $default_bg;
     ?>
     <div class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat" style="background-image: url('<?php echo esc_url($bg_image); ?>');"></div>
@@ -21,9 +22,9 @@ get_header();
     <!-- Hero Content -->
     <div class="relative z-20 flex flex-col items-center text-center max-w-4xl px-6 animate-fade-in-up">
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight tracking-tight mb-6">
-            <?php echo esc_html(get_theme_mod('radix_hero_headline', 'Redefining Spaces.')); ?><br/>
+            <?php echo esc_html(get_theme_mod('radix_hero_headline', 'Construcción y Muebles')); ?><br/>
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-300">
-                <?php echo esc_html(get_theme_mod('radix_hero_subheadline', 'Elevating Experiences.')); ?>
+                <?php echo esc_html(get_theme_mod('radix_hero_subheadline', 'A Medida en el Sur de Chile')); ?>
             </span>
         </h1>
         <p class="text-gray-300 text-base md:text-lg lg:text-xl font-light max-w-2xl mb-10 leading-relaxed">
@@ -41,25 +42,128 @@ get_header();
     </div>
 </div>
 
-<!-- Coverage Area -->
-<div class="w-full bg-surface-dark border-y border-white/5 py-8">
-    <div class="px-4 md:px-40 text-center">
-        <p class="text-gray-500 text-xs font-semibold uppercase tracking-widest mb-6">Cobertura en el Sur de Chile</p>
-        <div class="flex flex-wrap justify-center gap-8 md:gap-12 opacity-60 hover:opacity-100 transition-all duration-500">
-            <span class="text-white text-lg font-bold font-display flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">location_on</span> Bío Bío
-            </span>
-            <span class="text-white text-lg font-bold font-display flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">location_on</span> Araucanía
-            </span>
-            <span class="text-white text-lg font-bold font-display flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">location_on</span> Los Ríos
-            </span>
-            <span class="text-white text-lg font-bold font-display flex items-center gap-2">
-                <span class="material-symbols-outlined text-primary">location_on</span> Los Lagos
-            </span>
+<!-- Coverage Area with Marquee -->
+<div class="w-full bg-surface-dark border-y border-white/5 py-10 md:py-12 overflow-hidden">
+    <div class="text-center mb-6">
+        <h3 class="text-primary text-base md:text-lg font-bold uppercase tracking-wider mb-2">Cobertura en el Sur de Chile</h3>
+        <p class="text-gray-400 text-sm">Desde Chillán hasta Castro</p>
+    </div>
+    <!-- Marquee Container -->
+    <div class="relative w-full">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <!-- Set 1 -->
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Chillán</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Concepción</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Los Ángeles</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Temuco</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Malalcahuello</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Valdivia</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Osorno</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Puerto Montt</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Puerto Varas</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Castro</span>
+                </div>
+                <!-- Set 2 (duplicate for seamless loop) -->
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Chillán</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Concepción</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Los Ángeles</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Temuco</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Malalcahuello</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Valdivia</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Osorno</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Puerto Montt</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Puerto Varas</span>
+                </div>
+                <div class="marquee-item">
+                    <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+                    <span class="text-white text-xl md:text-2xl font-bold">Castro</span>
+                </div>
+            </div>
         </div>
-        <p class="text-gray-400 text-xs mt-4">Desde Chillán hasta Puerto Varas</p>
+    </div>
+</div>
+
+<!-- Materials Highlight Section -->
+<div class="w-full bg-background-dark py-12 md:py-16 border-b border-white/5">
+    <div class="px-4 md:px-40 text-center">
+        <h3 class="text-primary text-base md:text-lg font-bold uppercase tracking-wider mb-3">Trabajamos con Materiales Premium</h3>
+        <p class="text-gray-400 text-sm mb-10">Cubiertas y superficies de alta calidad para cocinas, baños y espacios comerciales</p>
+        <div class="flex flex-wrap justify-center gap-12 md:gap-20">
+            <div class="flex flex-col items-center gap-4 group cursor-pointer">
+                <div class="w-24 h-24 md:w-28 md:h-28 rounded-full bg-surface-dark border-2 border-white/10 group-hover:border-primary group-hover:scale-110 flex items-center justify-center transition-all duration-300 shadow-lg shadow-black/20">
+                    <span class="material-symbols-outlined text-5xl md:text-6xl text-primary">countertops</span>
+                </div>
+                <span class="text-white text-xl md:text-2xl font-bold font-display group-hover:text-primary transition-colors">Granito</span>
+            </div>
+            <div class="flex flex-col items-center gap-4 group cursor-pointer">
+                <div class="w-24 h-24 md:w-28 md:h-28 rounded-full bg-surface-dark border-2 border-white/10 group-hover:border-primary group-hover:scale-110 flex items-center justify-center transition-all duration-300 shadow-lg shadow-black/20">
+                    <span class="material-symbols-outlined text-5xl md:text-6xl text-primary">diamond</span>
+                </div>
+                <span class="text-white text-xl md:text-2xl font-bold font-display group-hover:text-primary transition-colors">Cuarzo</span>
+            </div>
+            <div class="flex flex-col items-center gap-4 group cursor-pointer">
+                <div class="w-24 h-24 md:w-28 md:h-28 rounded-full bg-surface-dark border-2 border-white/10 group-hover:border-primary group-hover:scale-110 flex items-center justify-center transition-all duration-300 shadow-lg shadow-black/20">
+                    <span class="material-symbols-outlined text-5xl md:text-6xl text-primary">texture</span>
+                </div>
+                <span class="text-white text-xl md:text-2xl font-bold font-display group-hover:text-primary transition-colors">Mármol</span>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -81,7 +185,8 @@ get_header();
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             <!-- Card 1: Área Salud -->
             <div class="group relative overflow-hidden rounded-xl h-[500px] cursor-pointer">
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvK40bP3ATJYKCSS9gXerdzC9cgwUy91AiKbob5NomDC971W3mQ3mUxdHNRB2jCYDxJESAoL5GBVLxbXdFMG2j5WwUwky6b7fTJqPX0jlPAxxj8Y1SVirb4Y3Gtx8X-WLOaimaO6Lv79q8dGxZLSvm6gihs1SeaN3FSjQjj-oKjrmSunir8o00fK_jLwj2CTbNFGox44Xqd8b4wkLTENxTXdA0RgiaPxuGeH_AEE3Q5ft74PIDmSdRRDWCsmuNtznvjEH3Y1XbBBH-');"></div>
+                <!-- Imagen: Interior clínica moderna -->
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full flex flex-col items-start gap-3">
                     <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white mb-2">
@@ -99,7 +204,8 @@ get_header();
             
             <!-- Card 2: Construcción General -->
             <div class="group relative overflow-hidden rounded-xl h-[500px] cursor-pointer">
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDWdeeJHdRu2WzHTvar2RB7HsUy8_XQ8bNI56ff21GDIj7oO3BlAVi-GOig2KwEgA_6mBHd63id-4jDcsW6KI1anBSKkYoo0tC8njhYAYJSZf06U25I0Li4QM6rohqge06N2-SdhIb_rmLFsM5-t8MOk6_BnahAy7c8_wdli_zEvaXzZrP6lmgriZriIdI6nUio7m6MN0NzD_FbbCip65c8MNoKeEURJ2VmGX2V9Zs7aEBxd9TZm4-kzejImoOjEb0tX4z_RnN6rdWQ');"></div>
+                <!-- Imagen: Edificio construcción/arquitectura -->
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full flex flex-col items-start gap-3">
                     <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white mb-2">
@@ -117,7 +223,8 @@ get_header();
             
             <!-- Card 3: Muebles a Medida -->
             <div class="group relative overflow-hidden rounded-xl h-[500px] cursor-pointer">
-                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGQ9e9FXW1X05uILileZQ7pKM66H0JnW4MSRRLx395uwLkWkT5SHdycEoGi5MPey5asgFolyBlC0kxg_W1ZPigQE6N3fj_7hz3JmCETVRaZ4DAqvCp_d2uiwrdjP9RNiJ2sBYwSijv4H_EMtzGJzyGBkxHczlbgvHexCLWGkUF-EB6oqlJHhx3U1fXV2vuuM-HoF4zmiYWGli3b5VLXEoPrNqme9J4cEjtJk-UoOZ3X0ZJitEznvpR8sEbeu7wV3ntF2WCQ8QxBXkd');"></div>
+                <!-- Imagen: Interior muebles madera/cocina -->
+                <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
                 <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full flex flex-col items-start gap-3">
                     <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white mb-2">
@@ -132,11 +239,12 @@ get_header();
                     </span>
                 </div>
             </div>
+
     </div>
 </div>
 
 <!-- Nosotros Section -->
-<div class="w-full bg-background-dark py-20">
+<div id="nosotros" class="w-full bg-background-dark py-20">
     <div class="px-4 md:px-40 max-w-[1280px] mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div>
@@ -328,7 +436,7 @@ get_header();
 </div>
 
 <!-- FAQ Section -->
-<div class="w-full bg-background-dark py-20">
+<div id="faq" class="w-full bg-background-dark py-20">
     <div class="px-4 md:px-40 max-w-[900px] mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Preguntas Frecuentes</h2>
@@ -375,7 +483,7 @@ get_header();
 </div>
 
 <!-- Contact Form Section -->
-<div class="w-full bg-surface-dark py-20 border-y border-white/5">
+<div id="contacto" class="w-full bg-surface-dark py-20 border-y border-white/5">
     <div class="px-4 md:px-40 max-w-[1280px] mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
@@ -396,7 +504,7 @@ get_header();
                         <span class="material-symbols-outlined text-primary mt-1">mail</span>
                         <div>
                             <p class="text-white font-bold">Email</p>
-                            <p class="text-gray-400">contacto@radixdisenos.com</p>
+                            <p class="text-gray-400">contacto@radixspa.cl</p>
                         </div>
                     </div>
                     <div class="flex items-start gap-4">
