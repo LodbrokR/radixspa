@@ -504,7 +504,15 @@ add_action('save_post_proyecto', 'radix_save_proyecto_meta');
 /**
  * Enqueue scripts and styles
  */
-function radix_enqueue_scripts() {
+function radix_scripts() {
+    // Tailwind CSS - LOCAL COMPILED (23 KB vs 127 KB CDN!)
+    wp_enqueue_style(
+        'tailwind-local',
+        get_template_directory_uri() . '/assets/css/tailwind.min.css',
+        array(),
+        filemtime(get_template_directory() . '/assets/css/tailwind.min.css')
+    );
+    
     // Enqueue main stylesheet
     wp_enqueue_style('radix-style', get_stylesheet_uri(), array(), '1.0.0');
     
