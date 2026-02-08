@@ -203,7 +203,7 @@ get_header();
             </div>
             
             <!-- Card 2: Construcción General -->
-            <div class="group relative overflow-hidden rounded-xl h-[500px] cursor-pointer">
+            <a href="<?php echo home_url('/construccion-general'); ?>" class="group relative overflow-hidden rounded-xl h-[500px] block">
                 <!-- Imagen: Edificio construcción/arquitectura -->
                 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
@@ -219,10 +219,10 @@ get_header();
                         Más Información <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </span>
                 </div>
-            </div>
+            </a>
             
             <!-- Card 3: Muebles a Medida -->
-            <div class="group relative overflow-hidden rounded-xl h-[500px] cursor-pointer">
+            <a href="<?php echo home_url('/muebles-a-medida'); ?>" class="group relative overflow-hidden rounded-xl h-[500px] block">
                 <!-- Imagen: Interior muebles madera/cocina -->
                 <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=800&q=80');"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
@@ -238,7 +238,7 @@ get_header();
                         Más Información <span class="material-symbols-outlined text-sm">arrow_forward</span>
                     </span>
                 </div>
-            </div>
+            </a>
 
     </div>
 </div>
