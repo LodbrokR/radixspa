@@ -531,24 +531,8 @@ function radix_scripts() {
         array(),
         null
     );
-            theme: {
-                extend: {
-                    colors: {
-                        'primary': '#f59e0b',
-                        'background-light': '#f6f6f8',
-                        'background-dark': '#000000',
-                        'surface-dark': '#0a0a0a',
-                    },
-                    fontFamily: {
-                        'display': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-                        'body': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-                    },
-                },
-            },
-        }
-    ";
-    wp_add_inline_script('radix-tailwind', $tailwind_config, 'after');
     
+
     // Enqueue custom JavaScript
     wp_enqueue_script(
         'radix-main',
