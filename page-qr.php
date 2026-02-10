@@ -83,7 +83,7 @@
             </a>
 
             <!-- Instagram Button -->
-            <a href="https://www.instagram.com/radixspa?igsh=MWhmbDA0aWl5d3YxZg==" target="_blank" class="qr-button group relative flex items-center justify-between w-full p-4 rounded-xl bg-surface-dark/80 border border-white/5 hover:border-[#E1306C]/50 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-[#E1306C]/10 hover:-translate-y-1">
+            <a href="https://www.instagram.com/radixspa/?igsh=MWhmbDA0aWl5d3YxZg==" target="_blank" class="qr-button group relative flex items-center justify-between w-full p-4 rounded-xl bg-surface-dark/80 border border-white/5 hover:border-[#E1306C]/50 hover:bg-white/10 transition-all duration-300 shadow-lg hover:shadow-[#E1306C]/10 hover:-translate-y-1">
                  <div class="flex items-center gap-4">
                     <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-gray-800 to-black border border-white/5 flex items-center justify-center text-[#E1306C] group-hover:text-white transition-colors">
                         <span class="material-symbols-outlined text-2xl">photo_camera</span>
