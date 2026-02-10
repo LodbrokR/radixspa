@@ -19,8 +19,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            background-color: #0f172a; /* Fallback for bg-background-dark if variable fails */
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            background-color: #0a0a0a;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
         }
         .qr-button {
              backdrop-filter: blur(10px);
@@ -129,7 +129,7 @@
     <!-- Background Decorative Elements -->
     <div class="fixed top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
         <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px]"></div>
-        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-600/5 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-white/5 rounded-full blur-[120px]"></div>
     </div>
 
     <?php wp_footer(); ?>
