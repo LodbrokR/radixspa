@@ -116,13 +116,7 @@
 
         </div>
 
-        <!-- Footer Footer -->
-        <div class="mt-16 text-center animate-fade-in-up" style="animation-delay: 200ms;">
-             <div class="w-16 h-1 bg-white/10 mx-auto rounded-full mb-4"></div>
-             <p class="text-gray-600 text-xs">
-                &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.<br>Todos los derechos reservados.
-            </p>
-        </div>
+
 
     </div>
 
